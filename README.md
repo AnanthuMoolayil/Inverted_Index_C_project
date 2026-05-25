@@ -5,13 +5,36 @@ Inverted index implementation which performs the following:
 
 ## Concepts used:
 ### A. Core Data structures
-  1. **Hash table**:  a. hash table function<br>
-                      b. bucketed storage<br>
-                      c. collision traversal<br>
-                      d. lookup optimization<br>
+  1. **Hash table**:
+     a. Hash table function<br>
+     b. Bucketed storage<br>
+     c. Collision traversal<br>
+     d. Lookup optimization<br>
      
-  2. **Linked List**:  a. Insertion, deletion and traversal
-                   b. Nested linked lists
+  2. **Linked List**:
+     a. Insertion, deletion and traversal<br>
+     b. Nested linked lists<br>
      
-  3. **Multi level dynamic structures**:  a. Nested structures
-                                      b. Relationship modeling
+  3. **Multi level dynamic structures**:
+     a. Nested structures<br>
+     b. Relationship modeling<br>
+
+### B. Memory management
+  1. **Memory resource handling**:
+     a. Allocation error handling
+     b. Cleanup logic
+  2. **Debugging**:
+     a. Address sanitiser usage
+     b. Buffer overflow & linked list edge case handling
+
+### C. Algorithm
+  1. **Hash table indexing and inserting**:
+     a. Pointer manipulation
+     b. Code structural flow
+  2. **Input query parsing**:
+     a. Tokenization & normalization
+     b. Input validation & sanitization
+  3. **Precomputation for faster search output**
+
+
+     
