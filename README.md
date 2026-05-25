@@ -17,44 +17,44 @@ gcc *.c -o search_engine
 
 ## Concepts used:
 ### A. Core Data structures
-  1. **Hash table**:
+  1. **Hash table**:<br>
      a. Hash table function<br>
      b. Bucketed storage<br>
      c. Collision traversal<br>
      d. Lookup optimization<br>
-  2. **Linked List**:
+  2. **Linked List**:<br>
      a. Insertion, deletion and traversal<br>
      b. Nested linked lists<br>
-  3. **Multi level dynamic structures**:
+  3. **Multi level dynamic structures**:<br>
      a. Nested structures<br>
      b. Relationship modeling<br>
 
-### B. Memory management
-  1. **Memory resource handling**:
-     a. Allocation error handling
-     b. Cleanup logic
-  2. **Debugging**:
-     a. Address sanitiser usage
-     b. Buffer overflow & linked list edge case handling
+### B. Memory management<br>
+  1. **Memory resource handling**:<br>
+     a. Allocation error handling<br>
+     b. Cleanup logic<br>
+  2. **Debugging**:<br>
+     a. Address sanitiser usage<br>
+     b. Buffer overflow & linked list edge case handling<br>
 
-### C. Algorithm
-  1. **Hash table indexing and inserting**:
-     a. Pointer manipulation
-     b. Code structural flow
-  2. **Input query parsing**:
-     a. Tokenization & normalization
-     b. Input validation & sanitization
-  3. **Precomputation for faster search output**
+### C. Algorithm<br>
+  1. **Hash table indexing and inserting**:<br>
+     a. Pointer manipulation<br>
+     b. Code structural flow<br>
+  2. **Input query parsing**:<br>
+     a. Tokenization & normalization<br>
+     b. Input validation & sanitization<br>
+  3. **Precomputation for faster search output**<br>
 
-### D. Architecture & Design
-  1. **Modular design**:
+### D. Architecture & Design<br>
+  1. **Modular design**:<br>
      a. Separate structures<br>
      b. Helper fuunctions<br>
      c. Abstraction & Encapsulation<br>
-  2. **Error Handling**:
+  2. **Error Handling**:<br>
      a. Library style design<br>
      b. NULL checks & boundary validation<br>
-  3. **Testing & validation**:
+  3. **Testing & validation**:<br>
      a. Debugging approach<br>
      b. Query validation<br>
 
