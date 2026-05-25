@@ -1,0 +1,1 @@
+Memory cache ram cpu register pointer address
