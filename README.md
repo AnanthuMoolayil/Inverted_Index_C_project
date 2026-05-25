@@ -6,9 +6,9 @@ Inverted index implementation which performs the following:
 ## Concepts used:
 ### A. Core Data structures
   1. **Hash table**:  a. hash table function<br>
-                  b. bucketed storage
-                  c. collision traversal
-                  d. lookup optimization
+                      b. bucketed storage<br>
+                      c. collision traversal<br>
+                      d. lookup optimization<br>
      
   2. **Linked List**:  a. Insertion, deletion and traversal
                    b. Nested linked lists
