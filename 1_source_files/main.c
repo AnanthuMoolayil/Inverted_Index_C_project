@@ -68,7 +68,6 @@ int main(int argc, char *argv[])
     else if(or_n>0)
         out_buf_size=loop_or_search( g.cli_chain, &out_buf, cli_chain_size);
     
-    printf("Heyy\n");
     //  Display result
     if(out_buf!=NULL)
     {
