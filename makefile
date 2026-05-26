@@ -1,6 +1,8 @@
 CC = clang
 
-SRC = $(wildcard *.c)	
+SRC_DIR = 1_source_files
+
+SRC = $(wildcard $(SRC_DIR)/*.c)	
 
 TARGET = search_engine
 

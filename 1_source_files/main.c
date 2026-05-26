@@ -50,8 +50,11 @@ int main(int argc, char *argv[])
     //  Single word query
     if(cli_chain_size==1)
     {
-        for(int k=0; k < ( (g.cli_chain)->buf_size); k++)
-            printf("%d ", (g.cli_chain)->buf[k]);
+        printf("Search results:\n");
+
+        for( int i= ((g.cli_chain)->buf_size)-1 ; i>=0; i--)
+            printf("file_%d \n", (g.cli_chain)->buf[i]);
+        
         goto L1;
     }
     
