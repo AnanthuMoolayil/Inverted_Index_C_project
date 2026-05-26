@@ -1,3 +1,5 @@
+[![C Project CI](https://github.com/AnanthuMoolayil/Inverted_Index_C_project/actions/workflows/ci.yml/badge.svg)](https://github.com/AnanthuMoolayil/Inverted_Index_C_project/actions/workflows/ci.yml)                                                                       
+
 # Inverted_Index_C_project
 Inverted index implementation which performs the following:
 1. Create a hash lookup table mapping words to document ids containing these words.
