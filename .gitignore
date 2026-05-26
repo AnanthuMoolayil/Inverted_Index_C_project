@@ -25,3 +25,7 @@ build/
 # Temporary files
 *.tmp
 *.log
+
+# Config files
+*.clangd
+
