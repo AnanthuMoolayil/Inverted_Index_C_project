@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "header.h"
 #include "typedef.h"
-#include <direct.h>
+
 
 _global g={0};
 
