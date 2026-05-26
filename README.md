@@ -1,3 +1,5 @@
+![Build Status](...)
+
 # Inverted_Index_C_project
 Inverted index implementation which performs the following:
 1. Create a hash lookup table mapping words to document ids containing these words.
