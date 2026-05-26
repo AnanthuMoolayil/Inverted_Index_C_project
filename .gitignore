@@ -27,5 +27,5 @@ build/
 *.log
 
 # Config files
-*.clangd
+.clangd
 
