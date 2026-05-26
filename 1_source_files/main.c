@@ -6,10 +6,8 @@
 
 _global g={0};
 
-
-
 int main(int argc, char *argv[])
-{   
+{       
     //  Hash table initialization
     g.ht=calloc(1, sizeof(Htable));
     malloc_chk(g.ht);
@@ -25,16 +23,16 @@ int main(int argc, char *argv[])
         goto L1;
     
     //  Indexing files
-    index_file( g.ht, "C:/Embedded_C_projects/Inverted_Index/file_1.txt", 1,  g.delim_buf,  g.common_link);
-    index_file( g.ht, "file_2.txt", 2,  g.delim_buf,  g.common_link);
-    index_file( g.ht, "file_3.txt", 3,  g.delim_buf,  g.common_link);
-    index_file( g.ht, "file_4.txt", 4,  g.delim_buf,  g.common_link);
-    index_file( g.ht, "file_5.txt", 5,  g.delim_buf,  g.common_link);
-    index_file( g.ht, "file_6.txt", 6,  g.delim_buf,  g.common_link);
-    index_file( g.ht, "file_7.txt", 7,  g.delim_buf,  g.common_link);
-    index_file( g.ht, "file_8.txt", 8,  g.delim_buf,  g.common_link);
-    index_file( g.ht, "file_9.txt", 9,  g.delim_buf,  g.common_link);
-    index_file( g.ht, "file_10.txt", 10,  g.delim_buf,  g.common_link);
+    index_file( g.ht, "3_files_for_indexing/file_1.txt", 1,  g.delim_buf,  g.common_link);
+    index_file( g.ht, "3_files_for_indexing/file_2.txt", 2,  g.delim_buf,  g.common_link);
+    index_file( g.ht, "3_files_for_indexing/file_3.txt", 3,  g.delim_buf,  g.common_link);
+    index_file( g.ht, "3_files_for_indexing/file_4.txt", 4,  g.delim_buf,  g.common_link);
+    index_file( g.ht, "3_files_for_indexing/file_5.txt", 5,  g.delim_buf,  g.common_link);
+    index_file( g.ht, "3_files_for_indexing/file_6.txt", 6,  g.delim_buf,  g.common_link);
+    index_file( g.ht, "3_files_for_indexing/file_7.txt", 7,  g.delim_buf,  g.common_link);
+    index_file( g.ht, "3_files_for_indexing/file_8.txt", 8,  g.delim_buf,  g.common_link);
+    index_file( g.ht, "3_files_for_indexing/file_9.txt", 9,  g.delim_buf,  g.common_link);
+    index_file( g.ht, "3_files_for_indexing/file_10.txt", 10,  g.delim_buf,  g.common_link);
 
 
     
@@ -61,7 +59,7 @@ int main(int argc, char *argv[])
     //  Sorting query chain
     g.cli_chain=merge_sort( g.cli_chain);
 
-    int *out_buf, i=0;
+    int *out_buf;
     uint out_buf_size;
 
     //  Boolean chain operations
@@ -70,21 +68,28 @@ int main(int argc, char *argv[])
     else if(or_n>0)
         out_buf_size=loop_or_search( g.cli_chain, &out_buf, cli_chain_size);
     
+    printf("Heyy\n");
     //  Display result
     if(out_buf!=NULL)
     {
-        for( i=out_buf_size-1; i>=0; i--)
-            printf("%d ", *(out_buf+i));
+        printf("Search results:\n");
+
+        for( int i=out_buf_size-1; i>=0; i--)
+            printf("file_%d \n", *(out_buf+i));
         
         free(out_buf);
     }
-    else 
+    else
         printf("Nothing common");
       
 L1: cleanup();
       
     return 0;
 }
+
+
+
+
 
 /*
 if( (and_n>0) && (and_n!=(cli_chain_size-1)) )

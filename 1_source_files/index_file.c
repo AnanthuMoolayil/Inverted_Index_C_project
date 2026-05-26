@@ -147,8 +147,8 @@ char lower_mod(char in_char)
 char* delim_file_load()
 {
     //  file_error function for handling file opening error.
-    FILE *delim_fptr=fopen("delimiters.txt", "r");
-    if( file_error( "delimiters.txt", delim_fptr, delim_file) )
+    FILE *delim_fptr=fopen("2_parsing_check_files/delimiters.txt", "r");
+    if( file_error( "2_parsing_check_files/delimiters.txt", delim_fptr, delim_file) )
         return NULL;
 
     fseek(delim_fptr, 0, SEEK_END);
@@ -195,8 +195,8 @@ int delim_check(char in_char, char *file_buf)
  */
 common_list* common_file_load()
 {
-    FILE *common_fptr=fopen("common words.txt", "rb");
-    if( file_error( "common words.txt", common_fptr, common_file) )
+    FILE *common_fptr=fopen("2_parsing_check_files/common_words.txt", "rb");
+    if( file_error( "2_parsing_check_files/common_words.txt", common_fptr, common_file) )
         return NULL;
     
     fseek(common_fptr, 0, SEEK_END);
