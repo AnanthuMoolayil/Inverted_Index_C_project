@@ -15,6 +15,8 @@ gcc *.c -o search_engine
 
 ```bash
 ./search_engine cat AND dog
+Search results:
+file_1
 ```
 
 ## Concepts used:
