@@ -85,6 +85,8 @@ Here is a sample screenshot of input queries:<br>
 <br>
 Here is a sample screenshot of invalid query handling:<br>
 <img width="812" height="598" alt="invalid_queries" src="https://github.com/user-attachments/assets/c0770e09-e2d9-43d5-904b-b22b7f2f90fc" />
+<br>
+*Search results can be verified using Inverted_Index_Lookup.pdf*
 
 
 
