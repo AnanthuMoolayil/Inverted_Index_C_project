@@ -3,8 +3,17 @@
 # Inverted_Index_C_project
 Inverted index implementation which performs the following:
 1. Create a hash lookup table mapping words to document ids containing these words.
-2. Display results for Boolean AND/OR chain input queries.
+2. Display results for input search queries.
 
+## Features
+1. Single word query
+2. Chained Boolean(AND/OR) query
+3. Tokenization & normalization
+4. Stop word removal during indexing
+5. Punctuation stripping from file being indexed and input query
+6. Invalid query handling
+7. Verified leak-free via Address Sanitiser
+   
 ## Build
 
 ```bash
@@ -18,6 +27,14 @@ gcc *.c -o search_engine
 Search results:
 file_1
 ```
+
+## Output 
+Here is a sample screenshot of input queries:<br>
+<img width="812" height="502" alt="sample_queries" src="https://github.com/user-attachments/assets/99f7a51d-5341-4429-96ec-61b7f6ef80de" />
+<br>
+<br>
+Here is a sample screenshot of invalid query handling:<br>
+<img width="812" height="598" alt="invalid_queries" src="https://github.com/user-attachments/assets/c0770e09-e2d9-43d5-904b-b22b7f2f90fc" />
 
 ## Concepts used:
 ### A. Core Data structures
