@@ -14,10 +14,23 @@ Inverted index implementation which performs the following:
 6. Invalid query handling
 7. Verified leak-free via Address Sanitiser
    
+## Hash table visualisation
+<img width="700" height="600" alt="hash_table_layout" src="https://github.com/user-attachments/assets/a12829d2-dcc6-433a-ab25-0e56e9dda81f" />
+<br>
+<br>
+
+
 ## Build
 
 ```bash
-gcc *.c -o search_engine
+gcc -std=c17 \
+    -Wall -Wextra \
+    -Wshadow \
+    -Wconversion \
+    -Wsign-conversion \
+    -g \
+    -fsanitize=address,undefined \
+    1_source_files/*.c -o search_engine
 ```
 
 ## Run (Example Query)
