@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "header.h"
-#include "typedef.h"
+#include "0_header.h"
+#include "01_typedef.h"
 
 
 _global g={0};
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 
     
     int nil=0, and_n=0, or_n=0;
-    uint cli_chain_size;
+    int cli_chain_size;
 
     //  Input query parsing
     cli_chain_size=cli_chain_maker(argc, argv,  g.ht, &( g.cli_chain), &nil, &and_n, &or_n,  g.delim_buf,  g.common_link);
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     {
         printf("Search results:\n");
 
-        for( int i= ((g.cli_chain)->buf_size)-1 ; i>=0; i--)
+        for( int i= (int)((g.cli_chain)->buf_size)-1 ; i>=0; i--)
             printf("file_%d \n", (g.cli_chain)->buf[i]);
         
         goto L1;
@@ -59,21 +59,21 @@ int main(int argc, char *argv[])
     //  Sorting query chain
     g.cli_chain=merge_sort( g.cli_chain);
 
-    int *out_buf;
+    int *out_buf=NULL;
     uint out_buf_size;
 
     //  Boolean chain operations
     if(and_n>0)
-        out_buf_size=loop_and_search( g.cli_chain, &out_buf, cli_chain_size);
+        out_buf_size=loop_and_search( g.cli_chain, &out_buf);
     else if(or_n>0)
-        out_buf_size=loop_or_search( g.cli_chain, &out_buf, cli_chain_size);
+        out_buf_size=loop_or_search( g.cli_chain, &out_buf);
     
     //  Display result
     if(out_buf!=NULL)
     {
         printf("Search results:\n");
 
-        for( int i=out_buf_size-1; i>=0; i--)
+        for( int i=(int)out_buf_size-1; i>=0; i--)
             printf("file_%d \n", *(out_buf+i));
         
         free(out_buf);

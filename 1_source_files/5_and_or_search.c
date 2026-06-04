@@ -1,13 +1,13 @@
 /*
  *  This code is for performing AND and OR operations on memory buffers associated with input words.
- *  'uint' and 'uchar' are typedefs defined in "typedef.h"
+ *  'uint' and 'uchar' are typedefs defined in "01_typedef.h"
  *  malloc_chk function is used to check for dynamic memory allocation failure and subsequent proper exit from program.
  */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "typedef.h"
-#include "header.h"
+#include "01_typedef.h"
+#include "0_header.h"
 
 
 /*
@@ -48,7 +48,12 @@ uint and_search(int *in1, uint in1_size, int *in2, uint in2_size, int **buf)
         *buf=NULL;
     }    
     else
-        *buf=realloc(*buf, sizeof(int)*j);
+    {
+        int *temp=realloc(*buf, sizeof(int)*j);
+        malloc_chk(temp);
+        *buf=temp;
+    }
+        
     
     return j;    
 }
@@ -105,11 +110,12 @@ uint or_search(int *in1, uint in1_size, int *in2, uint in2_size, int **buf)
         j++;
     }
     if( j<(in1_size+in2_size) )
-        *buf=realloc(*buf, sizeof(int)*j);
-    
+    {
+        int *temp=realloc(*buf, sizeof(int)*j);
+        malloc_chk(temp);
+        *buf=temp;
+    }
     return j;
-
-    
 }
 
 

@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "header.h"
+#include "0_header.h"
 
 extern _global g;
 
@@ -12,7 +12,6 @@ void Htable_cleanup(Htable *ht)
     if(ht==NULL)
         return;
     
-    Htable *temp;
     int i=0;
 
     while(i<table_size)
@@ -98,7 +97,7 @@ void delim_buf_cleanup(char *buf)
 }
 
 //  Function to free memory allocated throughout the program.
-void cleanup()
+void cleanup(void)
 {
     cli_word_chain_cleanup( g.cli_chain);
     Htable_cleanup( g.ht);

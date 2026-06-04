@@ -1,6 +1,6 @@
 /*
  *  This code is for processing input query chain and performing subsequent AND/OR operations.
- *  'uint' and 'uchar' are typedefs defined in "typedef.h"
+ *  'uint' and 'uchar' are typedefs defined in "01_typedef.h"
  *  malloc_chk function is used to check for dynamic memory allocation failure and subsequent proper exit from program.
  */
 
@@ -8,8 +8,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "typedef.h"
-#include "header.h"
+#include "01_typedef.h"
+#include "0_header.h"
 
 
 /*
@@ -36,7 +36,7 @@ int cli_chain_maker( int argc, char *argv[], Htable *ht, cli_word_chain **chain,
     char *word=NULL;
     
     //  Used to keep track whether command line argument in consideration is a word or operator.
-    IN_type status=-1;
+    IN_type status=(IN_type)-1;
 
     /*
      *  i keeps the count of current command line argument in consideration
@@ -48,18 +48,28 @@ int cli_chain_maker( int argc, char *argv[], Htable *ht, cli_word_chain **chain,
     if(argc==1)
         return error_process(empty);
 
+    char *temp=malloc(strlen(argv[1])+1);
+    strcpy(temp,argv[1]);
+    temp=str_to_lower(temp);
+
     //  When operators present at the start of query 
-    if( ( strcmp(argv[1], "and")==0 ) || ( strcmp(argv[1], "or")==0 ) )
+    if( ( strcmp(temp, "and")==0 ) || ( strcmp(temp, "or")==0 ) )
         return error_process(op_first);
 
+    temp=malloc(strlen(argv[argc-1])+1);
+    strcpy(temp,argv[argc-1]);
+    temp=str_to_lower(temp);
+    
     //  When operators present at the end of query 
-    if( ( strcmp(argv[argc-1], "and")==0 ) || ( strcmp(argv[argc-1], "or")==0 ) )
+    if( ( strcmp(temp, "and")==0 ) || ( strcmp(temp, "or")==0 ) )
         return error_process(op_last);
 
     while(i<argc)
     {   
         //  Copy of command line argument is made. 
-        word=realloc( word, strlen(argv[i])+1 );
+        char *temp=realloc( word, strlen(argv[i])+1 );
+        malloc_chk(temp);   //allocation failure check
+        word=temp;
         strcpy(word, argv[i]);
         word=str_to_lower(word);    //  str_to_lower function converts string to lower case
 
@@ -135,7 +145,7 @@ int cli_chain_maker( int argc, char *argv[], Htable *ht, cli_word_chain **chain,
  */
 char* str_to_lower(char *word)
 {
-    for(int i=0; i<strlen(word); i++)
+    for(int i=0; i<(int)strlen(word); i++)
         word[i]=lower_mod(word[i]);     //  lower_mod function is used to convert a character to lower case.  
     
     return word;
@@ -156,7 +166,7 @@ int in_word_processor(char **word, char *delim_buf, common_list *c_list, char *a
 
     strcpy(temp, *word);
 
-    int i=0, temp_size=strlen(temp);
+    int i=0, temp_size=(int)strlen(temp);
 
     //  Strip delimiters from the beginning of the word
     for(i=0; i<temp_size; i++)
@@ -168,7 +178,7 @@ int in_word_processor(char **word, char *delim_buf, common_list *c_list, char *a
     }
     temp=&temp[i];
     //  Strip delimiters from the ending of the word
-    for(i=strlen(temp)-1; i>=0; i--)
+    for(i=(int)strlen(temp)-1; i>=0; i--)
     {
         if( delim_check(temp[i], delim_buf) )
         {   
@@ -197,7 +207,9 @@ int in_word_processor(char **word, char *delim_buf, common_list *c_list, char *a
         return 1;
     }
 
-    *word=realloc(*word, strlen(temp)+1);
+    char *null_chk=realloc(*word, strlen(temp)+1);
+    malloc_chk(null_chk);   //allocation failure cjeck
+    *word=null_chk;
     strcpy(*word, temp);
     
     free(malloc_address);
@@ -310,7 +322,7 @@ uint posting_buffer(Entry *word_entry, int **buf)
  *  3. out_buf contains the final result.
  *  4. Returns the no. of doc_ids in the final result.
  */
-uint loop_and_search(cli_word_chain *chain, int **out_buf, int size)
+uint loop_and_search(cli_word_chain *chain, int **out_buf)
 {
     int *in1=chain->buf, *in2;
     uint in1_size=chain->buf_size, in2_size;
@@ -351,7 +363,7 @@ uint loop_and_search(cli_word_chain *chain, int **out_buf, int size)
  *  3. out_buf contains the final result.
  *  4. Returns the no. of doc_ids in the final result.
  */
-uint loop_or_search(cli_word_chain *chain, int **out_buf, int size)
+uint loop_or_search(cli_word_chain *chain, int **out_buf)
 {
     int *in1=chain->buf, *in2;
     uint in1_size=chain->buf_size, in2_size;

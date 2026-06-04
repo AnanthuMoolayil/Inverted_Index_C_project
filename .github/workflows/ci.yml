@@ -16,3 +16,6 @@ jobs:
 
     - name: Compile project
       run: gcc 1_source_files/*.c -o search_engine
+
+    - name: Run program
+      run: ./search_engine cat AND dog

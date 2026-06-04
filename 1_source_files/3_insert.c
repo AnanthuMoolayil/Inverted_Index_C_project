@@ -1,14 +1,14 @@
  /*
  *  Code for inserting a word into hash table
- *  'uint' and 'uchar' are typedefs defined in "typedef.h"
+ *  'uint' and 'uchar' are typedefs defined in "01_typedef.h"
  *  malloc_chk function is used to check for dynamic memory allocation failure and subsequent proper exit from program.
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "typedef.h"
-#include "header.h"
+#include "01_typedef.h"
+#include "0_header.h"
 
 
 /*

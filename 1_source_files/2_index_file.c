@@ -1,14 +1,14 @@
 /*
  *  This code is for indexing words in a file to hash table.
- *  'uint' and 'uchar' are typedefs defined in "typedef.h"
+ *  'uint' and 'uchar' are typedefs defined in "01_typedef.h"
  *  malloc_chk function is used to check for dynamic memory allocation failure and subsequent proper exit from program.
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "typedef.h"
-#include "header.h"
+#include "01_typedef.h"
+#include "0_header.h"
 #include <ctype.h>
 
 
@@ -132,7 +132,7 @@ void index_file(Htable *ht, char *filename, int doc_id, char *delim_buf, common_
 char lower_mod(char in_char)
 {
     if( (in_char>='A') && (in_char<='Z') )
-        return tolower(in_char);
+        return (char)tolower(in_char);
     else
         return in_char;
 }
@@ -144,7 +144,7 @@ char lower_mod(char in_char)
  *  2. Load all the characters in the file to memory in form of string 'buf'.
  *  3. Returns address of memory buffer.
  */
-char* delim_file_load()
+char* delim_file_load(void)
 {
     //  file_error function for handling file opening error.
     FILE *delim_fptr=fopen("2_parsing_check_files/delimiters.txt", "r");
@@ -152,7 +152,7 @@ char* delim_file_load()
         return NULL;
 
     fseek(delim_fptr, 0, SEEK_END);
-    uint delim_file_size=ftell(delim_fptr);
+    uint delim_file_size=(uint)ftell(delim_fptr);
     char *buf=malloc(sizeof(char)*(delim_file_size+1));
     malloc_chk(buf);
     rewind(delim_fptr);
@@ -193,14 +193,14 @@ int delim_check(char in_char, char *file_buf)
  *  common_file_load function loads words in 'common words.txt' into linked list of type 'common_list'.
  *  Returns address of first node of linked list containing common words.
  */
-common_list* common_file_load()
+common_list* common_file_load(void)
 {
     FILE *common_fptr=fopen("2_parsing_check_files/common_words.txt", "rb");
     if( file_error( "2_parsing_check_files/common_words.txt", common_fptr, common_file) )
         return NULL;
     
     fseek(common_fptr, 0, SEEK_END);
-    uint common_file_size=ftell(common_fptr);
+    uint common_file_size=(uint)ftell(common_fptr);
     char *buf=malloc(sizeof(char)*(common_file_size+1));
     malloc_chk(buf);
     rewind(common_fptr);

@@ -2,7 +2,7 @@
 #define HEADER_H
 
 #include <stdio.h>
-#include "typedef.h"
+#include "01_typedef.h"
 
 #define table_size 1000 
 #define word_size 46
@@ -126,13 +126,13 @@ void index_file(Htable *ht, char *filename, int doc_id, char *delim_buf, common_
 
 char lower_mod(char in_char);
 
-char* delim_file_load();
+char* delim_file_load(void);
 
 int delim_check(char in_char, char *file_buf);
 
 void common_list_insert(common_list **list, common_list **tail, char *word);
 
-common_list* common_file_load();
+common_list* common_file_load(void);
 
 int common_word(char *word, common_list *list);
 
@@ -152,9 +152,9 @@ int cli_chain_maker( int argc, char *argv[], Htable *ht, cli_word_chain **chain,
 
 int cli_chain_insert(cli_word_chain **chain, char *word, Htable *ht);
 
-uint loop_and_search(cli_word_chain *chain, int **out_buf,int size);
+uint loop_and_search(cli_word_chain *chain, int **out_buf);
 
-uint loop_or_search(cli_word_chain *chain, int **out_buf, int size);
+uint loop_or_search(cli_word_chain *chain, int **out_buf);
 
 char* str_to_lower(char *word);
 
@@ -184,7 +184,7 @@ void cli_word_chain_cleanup(cli_word_chain *chain);
 
 void delim_buf_cleanup(char *buf);
 
-void cleanup();
+void cleanup(void);
 
 
 
