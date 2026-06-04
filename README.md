@@ -19,6 +19,43 @@ Inverted index implementation which performs the following:
 <br>
 <br>
 
+## Concepts used:
+### A. Core Data structures
+  1. **Hash table**:<br>
+     a. Bucketed storage<br>
+     b. Collision traversal<br>
+    
+  2. **Multi level dynamic structures**:<br>
+     a. Nested structures & linked lists<br>
+
+### B. Memory management<br>
+  1. **Memory resource handling**:<br>
+     a. Allocation error handling<br>
+     b. Cleanup logic<br>
+     
+  2. **Debugging**:<br>
+     a. Address sanitiser usage<br>
+     b. Buffer overflow & linked list edge case handling<br>
+
+### C. Algorithm<br>
+  1. **Hash table indexing and inserting**:<br>
+     a. Pointer manipulation<br>
+     
+  2. **Input query parsing**:<br>
+     a. Tokenization & normalization<br>
+     b. Input validation & sanitization<br>
+     
+  3. **Precomputation for faster search output**<br>
+
+### D. Architecture & Design<br>
+  1. **Modular design**:<br>
+     b. Helper fuunctions<br>
+     c. Abstraction & Encapsulation<br>
+     
+  3. **Testing & validation**:<br>
+     a. Debugging approach<br>
+     b. Query validation<br>
+
 
 ## Build
 
@@ -49,48 +86,6 @@ Here is a sample screenshot of input queries:<br>
 Here is a sample screenshot of invalid query handling:<br>
 <img width="812" height="598" alt="invalid_queries" src="https://github.com/user-attachments/assets/c0770e09-e2d9-43d5-904b-b22b7f2f90fc" />
 
-## Concepts used:
-### A. Core Data structures
-  1. **Hash table**:<br>
-     a. Hash table function<br>
-     b. Bucketed storage<br>
-     c. Collision traversal<br>
-     d. Lookup optimization<br>
-  2. **Linked List**:<br>
-     a. Insertion, deletion and traversal<br>
-     b. Nested linked lists<br>
-  3. **Multi level dynamic structures**:<br>
-     a. Nested structures<br>
-     b. Relationship modeling<br>
-
-### B. Memory management<br>
-  1. **Memory resource handling**:<br>
-     a. Allocation error handling<br>
-     b. Cleanup logic<br>
-  2. **Debugging**:<br>
-     a. Address sanitiser usage<br>
-     b. Buffer overflow & linked list edge case handling<br>
-
-### C. Algorithm<br>
-  1. **Hash table indexing and inserting**:<br>
-     a. Pointer manipulation<br>
-     b. Code structural flow<br>
-  2. **Input query parsing**:<br>
-     a. Tokenization & normalization<br>
-     b. Input validation & sanitization<br>
-  3. **Precomputation for faster search output**<br>
-
-### D. Architecture & Design<br>
-  1. **Modular design**:<br>
-     a. Separate structures<br>
-     b. Helper fuunctions<br>
-     c. Abstraction & Encapsulation<br>
-  2. **Error Handling**:<br>
-     a. Library style design<br>
-     b. NULL checks & boundary validation<br>
-  3. **Testing & validation**:<br>
-     a. Debugging approach<br>
-     b. Query validation<br>
 
 
      
