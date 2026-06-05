@@ -12,7 +12,8 @@ Inverted index implementation which performs the following:
 4. Stop word removal during indexing
 5. Punctuation stripping from file being indexed and input query
 6. Invalid query handling
-7. Verified leak-free via Address Sanitiser
+7. Optimal merge complexity for faster perfomance
+8. Verified leak-free via Address Sanitiser
    
 ## Hash table visualisation
 <img width="700" height="600" alt="hash_table_layout" src="https://github.com/user-attachments/assets/a12829d2-dcc6-433a-ab25-0e56e9dda81f" />
