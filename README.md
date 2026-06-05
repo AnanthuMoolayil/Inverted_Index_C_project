@@ -19,6 +19,27 @@ Inverted index implementation which performs the following:
 <br>
 <br>
 
+## Complexity analysis
+
+| Operation          | Complexity               |
+| ------------------ | ------------------------ |
+| Index Creation     | O(T) average             |
+| Word Lookup        | O(1) average, O(B) worst |
+| AND Query          | O(n + m)                 |
+| OR Query           | O(n + m)                 |
+| Query Term Sorting | O(Q log Q)               |
+| Memory Cleanup     | O(H + W + R)             |
+
+where<br>
+T = total words processed during indexing<br>
+L = length of a word<br>
+B = number of words in a hash bucket (collision chain length)<br>
+P = number of documents containing a word (posting list size)<br>
+Q = number of searchable terms in a query<br>
+H = hash buckets<br>
+W = unique indexed words<br>
+R = posting-list nodes
+
 ## Concepts used:
 ### A. Core Data structures
   1. **Hash table**:<br>
